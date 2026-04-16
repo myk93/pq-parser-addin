@@ -1,0 +1,41 @@
+{
+  "name": "pq-parser-addin",
+  "version": "1.0.0",
+  "description": "Office Add-in for inspecting and injecting Power Query queries in Excel workbooks",
+  "private": true,
+  "scripts": {
+    "start": "cross-env TS_NODE_PROJECT=tsconfig.node.json webpack serve --mode development",
+    "build": "cross-env TS_NODE_PROJECT=tsconfig.node.json webpack --mode production",
+    "build:dev": "cross-env TS_NODE_PROJECT=tsconfig.node.json webpack --mode development",
+    "typecheck": "tsc --noEmit",
+    "sideload": "office-addin-debugging start manifest.xml",
+    "validate": "office-addin-manifest validate manifest.xml"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "^9.54.0",
+    "@fluentui/react-icons": "^2.0.230",
+    "@microsoft/connected-workbooks": "^3.4.2",
+    "buffer": "^6.0.3",
+    "jszip": "^3.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/office-js": "^1.0.377",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "office-addin-debugging": "^6.0.6",
+    "office-addin-dev-certs": "^2.0.6",
+    "office-addin-manifest": "^2.1.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}

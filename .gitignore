@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.office-addin-dev-certs/
+.webpack/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+*.log
