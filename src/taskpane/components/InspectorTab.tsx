@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
     makeStyles,
     tokens,
@@ -53,7 +53,7 @@ export const InspectorTab: React.FC = () => {
     const [mashup, setMashup] = useState<ParsedMashup | null>(null);
     const [excelQueries, setExcelQueries] = useState<ExcelQueryInfo[]>([]);
     const [discrepancies, setDiscrepancies] = useState<Discrepancy[]>([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [rawMode, setRawMode] = useState(false);
 
@@ -71,6 +71,10 @@ export const InspectorTab: React.FC = () => {
             setLoading(false);
         }
     }, []);
+
+    useEffect(() => {
+        refresh();
+    }, [refresh]);
 
     const apiMap = new Map(excelQueries.map((q) => [q.name, q]));
 
@@ -111,7 +115,7 @@ export const InspectorTab: React.FC = () => {
 
                 {!loading && !error && !mashup && (
                     <Text className={styles.empty}>
-                        Click <strong>Refresh</strong> to read the workbook's DataMashup.
+                        No DataMashup found in this workbook.
                     </Text>
                 )}
 
